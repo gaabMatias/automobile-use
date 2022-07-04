@@ -99,8 +99,39 @@ describe('create car use unit tests', () => {
 
 
 describe('list car uses unit tests', () => {
-  it('Should list all car uses showing driver and car details', () => {})
-  it('should return an empty array if there is no uses', () => {})
+  it('Should list all car uses showing driver and car details', async () => {
+    const newCar = await carService.create({
+      licensePlate: 'C38320N',
+      color: '#02AEDF',
+      brand: 'FORD'
+    })
+    const newDriver = await driverService.create('JOHN DOE')
+
+    await carUseService.create({
+      driverId: newDriver.id,
+      carId: newCar.id,
+      reason: 'deliver a package'
+    })
+    const newCar2 = await carService.create({
+      licensePlate: 'NVM44A',
+      color: '#D973DB',
+      brand: 'NISSAN'
+    })
+    const newDriver2 = await driverService.create('GEORGE DOE')
+
+    await carUseService.create({
+      driverId: newDriver2.id,
+      carId: newCar2.id,
+      reason: 'go for a road trip'
+    })
+    const list = await carUseService.findUses()
+    expect(list.length).toBe(2)
+    expect(list[1].reason).toBe('go for a road trip')
+  })
+  it('should return an empty array if there is no uses', async () => {
+    const list = await carUseService.findUses()
+    expect(list.length).toBe(0)
+  })
 })
 
 
