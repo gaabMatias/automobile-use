@@ -5,7 +5,7 @@ module.exports = {
   collectCoverage: true,
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    '<rootDir>/src/modules/**/services/*.ts'
+    '<rootDir>/src/services/*.ts'
   ],
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',

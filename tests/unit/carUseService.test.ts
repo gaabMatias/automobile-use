@@ -60,7 +60,7 @@ describe('create car use unit tests', () => {
       reason: 'deliver a package'
     })
     await expect(
-      await carUseService.create({
+      carUseService.create({
         driverId: newDriver.id,
         carId: newCar.id,
         reason: 'deliver a package'
@@ -88,7 +88,7 @@ describe('create car use unit tests', () => {
     })
 
     await expect(
-      await carUseService.create({
+      carUseService.create({
         driverId: newDriver.id,
         carId: newCar2.id,
         reason: 'deliver a package'
