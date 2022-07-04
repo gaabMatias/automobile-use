@@ -11,6 +11,9 @@ type DriverModel = Model<DriverDocument>;
 
 const DriverSchema = new Schema(
   {
+    _id: {
+      type: String,
+    },
     id: {
       type: String,
       unique: true,

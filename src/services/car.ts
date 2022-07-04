@@ -27,9 +27,10 @@ export class CarService {
     if(checkIfCarExists) {
       throw new AppError(`${licensePlate} already registered`)
     }
-
+    const uniqueId =  uuid.v4()
     const newCar = await Car.create({
-      id: uuid.v4(),
+      _id: uniqueId,
+      id:uniqueId,
       ...createRequest
     })
     return newCar;

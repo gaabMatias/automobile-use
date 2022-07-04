@@ -15,9 +15,10 @@ export class DriverService {
     if (checkIfDriverAlreadyExists) {
       throw new AppError('Driver already exists!!')
     }
-
+    const uniqueId = uuid.v4()
     const newDriver = await Driver.create({
-      id: uuid.v4(),
+      _id: uniqueId,
+      id: uniqueId,
       name
     })
     return newDriver

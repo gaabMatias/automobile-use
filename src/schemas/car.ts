@@ -13,6 +13,9 @@ type CarModel = Model<CarDocument>;
 
 const CarSchema = new Schema(
   {
+    _id: {
+      type: String,
+    },
     id: {
       type: String,
       unique: true,
