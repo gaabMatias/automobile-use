@@ -148,7 +148,7 @@ describe('finish car use unit tests', () => {
       carId: newCar.id,
       reason: 'deliver a package'
     })
-    const finishUse = await carUseService.finishUse(carUse.id)
+    const finishUse = await carUseService.finishUse(carUse.driver)
     expect(finishUse).toBeDefined()
     expect(finishUse.endDate).toBeDefined()
   })
@@ -165,7 +165,7 @@ describe('finish car use unit tests', () => {
       carId: newCar.id,
       reason: 'deliver a package'
     })
-    await carUseService.finishUse(carUse.id)
+    await carUseService.finishUse(carUse.driver)
 
     const newCar2 = await carService.create({
       licensePlate: 'NVM44A',
@@ -181,6 +181,6 @@ describe('finish car use unit tests', () => {
     expect(carUse2.driver).toBe(newDriver.id)
   })
   it('Should not be able to finish a use that do not exists', async () => {
-    await expect(await carUseService.finishUse('0001')).rejects.toBeInstanceOf(AppError)
+    await expect(carUseService.finishUse('0001')).rejects.toBeInstanceOf(AppError)
   })
 })
