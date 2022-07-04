@@ -1,6 +1,7 @@
 import { Schema, Document, model, Model } from 'mongoose';
 
 export interface ICarInterface {
+  id: string;
   color: string;
   licensePlate: string;
   brand: string;
@@ -12,8 +13,9 @@ type CarModel = Model<CarDocument>;
 
 const CarSchema = new Schema(
   {
-    _id: {
+    id: {
       type: String,
+      unique: true,
     },
     licensePlate: {
       type: String,
