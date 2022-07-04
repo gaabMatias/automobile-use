@@ -4,7 +4,7 @@ import AppError from "../errors/appError";
 
 import { Driver, IDriverInterface } from "../schemas/driver";
 
-interface IFilterDriver {
+export interface IFilterDriver {
   name?: string;
 }
 
@@ -29,11 +29,11 @@ export class DriverService {
       if(!checkIfDriverExists) {
         throw new AppError('Driver does not exists!!')
       }
-      const findUpdatedCar = await Driver.findOne({id: checkIfDriverExists.id})
-      if(!findUpdatedCar) {
+      const findUpdatedDriver = await Driver.findOne({id: checkIfDriverExists.id})
+      if(!findUpdatedDriver) {
         throw new AppError('Something went wrong while updating driver')
       }
-      return findUpdatedCar
+      return findUpdatedDriver
   }
   public async delete(id: string): Promise<IDriverInterface> {
     const checkIfDriverExists = await Driver.findOneAndDelete({id})

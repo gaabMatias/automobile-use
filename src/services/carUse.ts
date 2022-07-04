@@ -5,19 +5,10 @@ import { Car, ICarInterface } from "../schemas/car";
 import { CarUse, ICarUseInterface } from "../schemas/carUse";
 import { Driver, IDriverInterface } from "../schemas/driver";
 
-interface ICreateUseDTO {
+export interface ICreateUseDTO {
   driverId: string;
   carId: string;
   reason: string;
-}
-
-interface IResponseList {
-  id: string;
-  reason: string;
-  car: ICarInterface;
-  driver: IDriverInterface;
-  startDate?: string;
-  endDate?: string;
 }
 export class CarUseService {
 

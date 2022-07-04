@@ -2,19 +2,17 @@ import  { Car, ICarInterface } from '../schemas/car'
 import * as uuid  from 'uuid'
 import AppError from '../errors/appError'
 
-interface ICarDTO {
+export interface ICarDTO {
   licensePlate: string;
   color: string;
   brand: string;
 }
-
-interface IUpdateCarDTO {
+export interface IUpdateCarDTO {
   id: string;
   color?: string;
   brand?: string;
 }
-
-interface IListCarDTO {
+export interface IListCarDTO {
   color?: string;
   brand?: string;
 }

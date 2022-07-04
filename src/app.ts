@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import 'express-async-errors';
-import './shared/database';
+import './database';
 
 import express, { Request, Response, NextFunction } from 'express';
 
