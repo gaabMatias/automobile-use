@@ -44,7 +44,7 @@ describe('create car unit tests', () => {
   })
 })
 
-describe('delete car unit tests', async () => {
+describe('delete car unit tests', () => {
   beforeAll(async () => {
     await MongoMock.connect();
   });
@@ -75,7 +75,7 @@ describe('delete car unit tests', async () => {
   })
 })
 
-describe('Get car by unique id unit tests', async () => {
+describe('Get car by unique id unit tests', () => {
   beforeAll(async () => {
     await MongoMock.connect();
   });
@@ -107,7 +107,7 @@ describe('Get car by unique id unit tests', async () => {
   })
 })
 
-describe('Update car unit tests', async () => {
+describe('Update car unit tests', () => {
   beforeAll(async () => {
     await MongoMock.connect();
   });
@@ -145,7 +145,7 @@ describe('Update car unit tests', async () => {
   })
 })
 
-describe('List cars unit tests', async () => {
+describe('List cars unit tests', () => {
   beforeAll(async () => {
     await MongoMock.connect();
   });
@@ -165,17 +165,17 @@ it('Should return a list of cars', async () => {
     color: '#02AEDF',
     brand: 'FORD'
   })
-  const car2 = await carService.create({
+  await carService.create({
     licensePlate: 'HCL1164',
     color: '#8A84BE',
     brand: 'ASTON MARTIN'
   })
-  const car3 = await carService.create({
+  await carService.create({
     licensePlate: '6DKC037',
     color: '#FEDDF8',
     brand: 'NISSAN'
   })
-  const listCars = await carService.listAndFilter();
+  const listCars = await carService.listAndFilter({});
   expect(listCars.length).toBe(3);
   expect(listCars[0].licensePlate).toBe(car1.licensePlate);
 })
@@ -211,7 +211,7 @@ it('Should return a list of cars filtered by brand', async () => {
 
 it('should return an empty list if there is no cars', async () => {
   const carService = new CarService();
-  const listCars = await carService.listAndFilter()
+  const listCars = await carService.listAndFilter({})
   expect(listCars.length).toBe(0)
 })
 })
