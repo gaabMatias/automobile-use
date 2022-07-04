@@ -1,4 +1,5 @@
-import mongoose, { Mongoose } from 'mongoose';
+import { Mongoose } from 'mongoose';
+import * as mongoose from 'mongoose';
 
 class MongoMock {
   private database: Mongoose;
