@@ -1,6 +1,7 @@
 import { Schema, Document, model, Model } from 'mongoose';
 
 export interface ICarUseInterface {
+  id: string;
   reason: string;
   car: string;
   driver: string;

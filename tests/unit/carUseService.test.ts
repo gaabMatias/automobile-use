@@ -134,10 +134,53 @@ describe('list car uses unit tests', () => {
   })
 })
 
-
 describe('finish car use unit tests', () => {
-  it('Should be able to finish a car use car', () => {})
-  it('should not be able to finish another driver car use', () => {})
-  it('should allow the driver and the car to be in another use after finishing', () => {})
-  it('Should not be able to finish a use that do not exists', () => {})
+  it('Should be able to finish a car use car', async () => {
+    const newCar = await carService.create({
+      licensePlate: 'C38320N',
+      color: '#02AEDF',
+      brand: 'FORD'
+    })
+    const newDriver = await driverService.create('JOHN DOE')
+
+    const carUse = await carUseService.create({
+      driverId: newDriver.id,
+      carId: newCar.id,
+      reason: 'deliver a package'
+    })
+    const finishUse = await carUseService.finishUse(carUse.id)
+    expect(finishUse).toBeDefined()
+    expect(finishUse.endDate).toBeDefined()
+  })
+  it('should allow the driver and the car to be in another use after finishing', async () => {
+    const newCar = await carService.create({
+      licensePlate: 'C38320N',
+      color: '#02AEDF',
+      brand: 'FORD'
+    })
+    const newDriver = await driverService.create('JOHN DOE')
+
+    const carUse = await carUseService.create({
+      driverId: newDriver.id,
+      carId: newCar.id,
+      reason: 'deliver a package'
+    })
+    await carUseService.finishUse(carUse.id)
+
+    const newCar2 = await carService.create({
+      licensePlate: 'NVM44A',
+      color: '#D973DB',
+      brand: 'NISSAN'
+    })
+    const carUse2 = await carUseService.create({
+      driverId: newDriver.id,
+      carId: newCar2.id,
+      reason: 'go for a roadtrip'
+    })
+    expect(carUse2).toBeDefined()
+    expect(carUse2.driver).toBe(newDriver.id)
+  })
+  it('Should not be able to finish a use that do not exists', async () => {
+    await expect(await carUseService.finishUse('0001')).rejects.toBeInstanceOf(AppError)
+  })
 })
