@@ -50,7 +50,6 @@ export class CarController {
 
   public async list(request: Request, response: Response) {
     const requestQuery = request.query as unknown
-    console.log('aqui')
     const carService = new CarService();
     try{
       const responseBody = await carService.listAndFilter(requestQuery as IListCarDTO);
