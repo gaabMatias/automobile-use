@@ -31,7 +31,6 @@ export class CarService {
       id:uniqueId,
       ...createRequest
     })
-    console.log(newCar)
     return newCar;
   }
 
@@ -67,6 +66,7 @@ export class CarService {
       }
     return findUpdatedCar
   }
+
   public async listAndFilter(listRequest: IListCarDTO): Promise<ICarInterface[]> {
     return await Car.find({...listRequest})
   }
