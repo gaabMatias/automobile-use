@@ -1,6 +1,5 @@
 import { config } from 'dotenv';
 import 'express-async-errors';
-import './database';
 
 import { Request, Response } from 'express';
 import * as express from 'express'
