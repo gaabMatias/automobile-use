@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { CarUseService, ICreateUseDTO } from './../services/carUse';
-
+import { carUseValidation } from '../yup/validation'
 
 export class CarUseController {
 
@@ -8,6 +8,7 @@ export class CarUseController {
     const requestBody: ICreateUseDTO = request.body
     const carUseService = new CarUseService();
     try{ 
+      await carUseValidation.validate(requestBody, {abortEarly: true})
       const responseBody = await carUseService.create(requestBody)
       return response.json(responseBody);
     } catch (error) {
