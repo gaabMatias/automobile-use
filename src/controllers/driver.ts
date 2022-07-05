@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { DriverService, IFilterDriver } from "../services/driver";
+import { driverValidation } from "../yup/validation";
 
 
 export class DriverController {
@@ -7,6 +8,7 @@ export class DriverController {
     const name = request.body;
     const driverService = new DriverService();
     try {
+      await driverValidation.validate(name, {abortEarly: true})
       const responseBody = await driverService.create(name)
       response.json(responseBody);
     }  catch (error) {
