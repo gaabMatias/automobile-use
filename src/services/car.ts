@@ -31,6 +31,7 @@ export class CarService {
       id:uniqueId,
       ...createRequest
     })
+    console.log(newCar)
     return newCar;
   }
 

@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 import { CarService, ICarDTO } from "../services/car";
 
 
@@ -22,7 +22,7 @@ export class CarController {
     } catch (error) {
       response.json(error)
     }
-  };
+  }
   public async getCar(request: Request, response: Response) {
     const { id } = request.params;
     const carService = new CarService();

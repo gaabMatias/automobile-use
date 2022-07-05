@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 import * as uuid  from 'uuid'
 import AppError from "../errors/appError";
-import { Car, ICarInterface } from "../schemas/car";
+import { Car } from "../schemas/car";
 import { CarUse, ICarUseInterface } from "../schemas/carUse";
-import { Driver, IDriverInterface } from "../schemas/driver";
+import { Driver } from "../schemas/driver";
 
 export interface ICreateUseDTO {
   driverId: string;
@@ -18,11 +18,14 @@ export class CarUseService {
       id: carId
     })
     const checkDriver = await Driver.findOne({id: driverId})
+
     if(!checkCar || !checkDriver) {
       throw new AppError('Car or Driver does not exist')
     }
     const checkCarAvailability = await CarUse.findOne({car: carId})
+
     const checkDriverAvailability = await CarUse.findOne({driver: driverId, endDate: undefined})
+
     if(checkCarAvailability) {
       throw new AppError('Car is not available at the moment')
     }
