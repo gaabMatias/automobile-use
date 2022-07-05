@@ -1,17 +1,20 @@
-`<div align="center" style="padding: 15px;">`
-  `<img alt="Seidor" title="Seidor" src="https://www.seidorbrasil.com.br/Content/assets/img/logo-default.png" width="200px" />`
 
+<div align="center" style="padding: 15px;">
+  <img alt="Seidor" title="Seidor" src="https://www.seidorbrasil.com.br/Content/assets/img/logo-default.png" width="200px" />
 </div>
+
 
 <p align="center"><i>Imagem feita pela <a href="https://www.seidor.com.br/content/seidor-latam-br/pt.html">Seidor</a></i></p>
 
+
 <h3 align="center">Código desenvolvido para a vaga de backend na Seidor 💻</h3>
+
 
 # RESUMO
 
-API desenvolvida em Node.JS como parte do teste para pleitear a vaga de desenvolvedor *backend* na `<a href="https://www.seidor.com.br/content/seidor-latam-br/pt.html">`Seidor`</a>`
+API desenvolvida em Node.JS como parte do teste para pleitear a vaga de desenvolvedor *backend* na 
 
-Para visualizar os requisitos, acesso o arquivo TESTE.md, clicando aqui.
+`<a href="https://www.seidor.com.br/content/seidorlatam/br/pt.html">`Seidor `</a>`
 
 # ÍNDICE
 
@@ -50,7 +53,8 @@ Existem duas maneiras de realizar o clone de um repositório, sendo elas: **SSH*
 Para clonar utilizando **SSH**, utilize o seguinte comando:
 
 ```bash
-git@github.com:gaabMatias/automobile-use.gitMONGO_URL
+git@github.com:gaabMatias/automobile-use.git
+
 ```
 
 Para clonar utilizando **HTTPS**, utilize o seguinte comando:
@@ -126,17 +130,17 @@ Na parte de automóveis, é possível realizar um CRUD.
 
 Segue abaixo as informações da rota de cadastro de um automóvel.
 
-| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)                                                                                                                                                                          | Retorno                                 |
-| :---------------: | :-------------: | :----------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
-|       Não       |      POST      | /car/create | 1 - licensePlate: String, que representa a placa do veículo `<br>` 2 - color: String, que representa a cor do veículo `<br>` 3 - brand: String, que representa a marca do veículo. `<br>` | Um objeto contendo os dados do veículo |
+| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)                                                                                                                                                                                | Retorno                                 |
+| :---------------: | :-------------: | :----------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
+|       Não       |      POST      | /car/create | 1 - licensePlate: String, que representa a placa do veículo `<br>` <br />2 - color: String, que representa a cor do veículo `<br>` 3 - brand: String, que representa a marca do veículo. `<br>` | Um objeto contendo os dados do veículo |
 
 ### Atualização do automóvel
 
 Segue abaixo as informações da rota de atualização de um automóvel.
 
-| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)                                                                                                                                                                                             | Retorno                                   |
-| :---------------: | :-------------: | :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
-|       Não       |       PUT       | /car/update | 1 - id: String e obrigatório, que representa o identificador unico do carro `<br>  `2 - color: String e opcional, representa a cor do carro<br />`<br>  `3- brand: String e opcional, representa a marca do carro | Um objeto contendo os dados do automóvel |
+| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)                                                                                                                                                                                                  | Retorno                                   |
+| :---------------: | :-------------: | :----------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
+|       Não       |       PUT       | /car/update | 1 - id: String e obrigatório, que representa o identificador unico do carro `<br> `2 - color: String e opcional, representa a cor do carro<br />`<br>  `<br />3- brand: String e opcional, representa a marca do carro | Um objeto contendo os dados do automóvel |
 
 ### Buscar apenas um automóvel
 
@@ -178,9 +182,9 @@ Segue abaixo as informações da rota de cadastro de um motorista.
 
 Segue abaixo as informações da rota de atualização de um motorista.
 
-| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Params)                                                                                                                                                       | Retorno                                  |
-| :---------------: | :-------------: | :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
-|       Não       |       PUT       | /driver/:id | 1 - id: String e obrigatório, que representa o ID no banco `<br>` 2 - name: string e obrigatório, que representa o nome do motorista<br /> `(passado por request body) <br>` | Um objeto contendo os dados do motorista |
+| Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Params)                                                                                                                                                        | Retorno                                  |
+| :---------------: | :-------------: | :----------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+|       Não       |       PUT       | /driver/:id | 1 - id: String e obrigatório, que representa o ID no banco `<br>` 2 - name: string e obrigatório, que representa o nome do motorista<br /><br />`(passado por request body) ` | Um objeto contendo os dados do motorista |
 
 ### Exclusão do motorista
 
